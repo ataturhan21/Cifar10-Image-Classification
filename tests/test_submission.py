@@ -27,7 +27,7 @@ def notebook_functions():
             continue
         source = cell["source"]
         source = "".join(source) if isinstance(source, list) else source
-        if not source.strip() or source.lstrip().startswith("!"):
+        if not source.strip() or source.lstrip().startswith(("!", "%")):
             continue
         tree = ast.parse(source)
         selected = []
