@@ -8,7 +8,7 @@ import unittest
 
 class TrainingBatchTests(unittest.TestCase):
     def fit_parameters(self, sample_count):
-        notebook = json.loads((Path(__file__).resolve().parents[1] / "cifar10-image-classification.ipynb").read_text())
+        notebook = json.loads((Path(__file__).resolve().parents[1] / "cifar10-image-classification.ipynb").read_text(encoding="utf-8"))
         function = next(node for cell in notebook["cells"] if cell["cell_type"] == "code"
                         and "def train_model" in "".join(cell["source"])
                         for node in ast.parse("".join(cell["source"])).body

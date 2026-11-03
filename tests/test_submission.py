@@ -14,7 +14,7 @@ import pandas as pd
 
 def notebook_functions():
     notebook = json.loads(
-        (Path(__file__).resolve().parents[1] / "cifar10-image-classification.ipynb").read_text()
+        (Path(__file__).resolve().parents[1] / "cifar10-image-classification.ipynb").read_text(encoding="utf-8")
     )
     namespace = {
         "np": np,
@@ -27,7 +27,7 @@ def notebook_functions():
             continue
         source = cell["source"]
         source = "".join(source) if isinstance(source, list) else source
-        if not source.strip() or source.lstrip().startswith("!"):
+        if not source.strip() or source.lstrip().startswith(("!", "%")):
             continue
         tree = ast.parse(source)
         selected = []

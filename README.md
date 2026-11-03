@@ -13,6 +13,18 @@ A TensorFlow/Keras notebook for the Kaggle CIFAR-10 competition. It loads archiv
 - Train with augmentation, Adam, early stopping, and learning-rate reduction. The current training call uses batch size 128 and a maximum of 5 epochs.
 - Export `submission.csv` with `id` and `label` columns.
 
+## Saved results
+
+The committed notebook outputs come from one 5-epoch Kaggle run without an accelerator. They predate the later class-mapping and partial-batch fixes, so treat them as historical, not as a measurement of the current code.
+
+| Item | Saved output |
+| --- | --- |
+| Training / validation / test images | 40,000 / 10,000 / 300,000 (32 × 32 × 3) |
+| Epoch 5 training accuracy / loss | 0.5323 / 2.1703 |
+| Epoch 5 validation accuracy / loss | 0.5529 / 2.0264 |
+
+The notebook also includes the accuracy and loss curves from that run under **Plotting Accuracy and Loss**.
+
 ## Run on Kaggle
 
 1. Create a notebook and attach the [CIFAR-10 competition data](https://www.kaggle.com/competitions/cifar-10/data).
@@ -52,13 +64,16 @@ Training and prediction share the same explicit class mapping. Test images are l
 
 ## Regression checks
 
+The checks need only NumPy and pandas, so a light environment is enough:
+
 ```bash
+python -m pip install numpy pandas
 python -m unittest discover -s tests -v
 ```
 
-Training includes the final partial batch, including datasets smaller than the batch size. The tests execute the notebook's loading, submission, and training-setup functions with synthetic inputs and small model/image doubles. They require NumPy and pandas, without TensorFlow training, OpenCV installation, or the competition dataset.
+Training includes the final partial batch, including datasets smaller than the batch size. The tests execute the notebook's loading, submission, and training-setup functions with synthetic inputs and small model/image doubles. They do not need TensorFlow, OpenCV, or the competition dataset.
 
-The GitHub Actions workflow runs these same focused checks with read-only repository access.
+The GitHub Actions workflow runs these same focused checks on Ubuntu and Windows with read-only repository access.
 
 The existing notebook outputs are historical. The tests verify label and row alignment, not a newly measured model accuracy.
 
