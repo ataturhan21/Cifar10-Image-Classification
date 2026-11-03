@@ -13,6 +13,18 @@ A TensorFlow/Keras notebook for the Kaggle CIFAR-10 competition. It loads archiv
 - Train with augmentation, Adam, early stopping, and learning-rate reduction. The current training call uses batch size 128 and a maximum of 5 epochs.
 - Export `submission.csv` with `id` and `label` columns.
 
+## Saved results
+
+The committed notebook outputs come from one 5-epoch Kaggle run without an accelerator. They predate the later class-mapping and partial-batch fixes, so treat them as historical, not as a measurement of the current code.
+
+| Item | Saved output |
+| --- | --- |
+| Training / validation / test images | 40,000 / 10,000 / 300,000 (32 × 32 × 3) |
+| Epoch 5 training accuracy / loss | 0.5323 / 2.1703 |
+| Epoch 5 validation accuracy / loss | 0.5529 / 2.0264 |
+
+The notebook also includes the accuracy and loss curves from that run under **Plotting Accuracy and Loss**.
+
 ## Run on Kaggle
 
 1. Create a notebook and attach the [CIFAR-10 competition data](https://www.kaggle.com/competitions/cifar-10/data).
