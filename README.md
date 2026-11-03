@@ -64,13 +64,16 @@ Training and prediction share the same explicit class mapping. Test images are l
 
 ## Regression checks
 
+The checks need only NumPy and pandas, so a light environment is enough:
+
 ```bash
+python -m pip install numpy pandas
 python -m unittest discover -s tests -v
 ```
 
-Training includes the final partial batch, including datasets smaller than the batch size. The tests execute the notebook's loading, submission, and training-setup functions with synthetic inputs and small model/image doubles. They require NumPy and pandas, without TensorFlow training, OpenCV installation, or the competition dataset.
+Training includes the final partial batch, including datasets smaller than the batch size. The tests execute the notebook's loading, submission, and training-setup functions with synthetic inputs and small model/image doubles. They do not need TensorFlow, OpenCV, or the competition dataset.
 
-The GitHub Actions workflow runs these same focused checks with read-only repository access.
+The GitHub Actions workflow runs these same focused checks on Ubuntu and Windows with read-only repository access.
 
 The existing notebook outputs are historical. The tests verify label and row alignment, not a newly measured model accuracy.
 
