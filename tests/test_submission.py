@@ -14,7 +14,7 @@ import pandas as pd
 
 def notebook_functions():
     notebook = json.loads(
-        (Path(__file__).resolve().parents[1] / "cifar10-image-classification.ipynb").read_text()
+        (Path(__file__).resolve().parents[1] / "cifar10-image-classification.ipynb").read_text(encoding="utf-8")
     )
     namespace = {
         "np": np,
