@@ -2,7 +2,7 @@
 
 A TensorFlow/Keras notebook for the Kaggle CIFAR-10 competition. It loads archived images, trains a convolutional classifier, and generates predictions aligned with the sample submission.
 
-**[Open the notebook](cifar10-image-classification.ipynb)** · **[Dependencies](requirements.txt)** · **[MIT license](LICENSE)**
+**[Open the notebook](cifar10-image-classification.ipynb)** · **[Dependencies](requirements.txt)**
 
 ## Model and workflow
 
@@ -77,6 +77,6 @@ The GitHub Actions workflow runs these same focused checks on Ubuntu and Windows
 
 The existing notebook outputs are historical. The tests verify label and row alignment, not a newly measured model accuracy.
 
-## License
+## Copyright
 
-[MIT](LICENSE).
+© Ata Turhan. All rights reserved. This repository has no open-source license: its code may not be copied, modified or redistributed.
